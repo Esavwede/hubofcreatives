@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", requestTick);
 
   // Intersection Observer for animations
-  const observerOptions = {
+  var observerOptions = {
     threshold: 0.1,
     rootMargin: "0px 0px -50px 0px",
   };
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Social Proof Section JavaScript
 document.addEventListener("DOMContentLoaded", function () {
   // Intersection Observer for animations
-  const observerOptions = {
+  var observerOptions = {
     threshold: 0.2,
     rootMargin: "0px 0px -50px 0px",
   };
@@ -417,4 +417,212 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("Social proof section loaded and optimized");
     });
   }
+
+  // Intersection Observer for step animations
+  var observerOptions = {
+    threshold: 0.3,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const stepObserver = new IntersectionObserver(function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Add animation class with staggered delay
+        const stepIndex = Array.from(entry.target.parentNode.children).indexOf(
+          entry.target
+        );
+        setTimeout(() => {
+          entry.target.classList.add("animate-in");
+
+          // Trigger progress circle animation
+          const progressCircle = entry.target.querySelector(".step-progress");
+          if (progressCircle) {
+            animateProgressCircle(entry.target, stepIndex + 1);
+          }
+        }, stepIndex * 200);
+
+        // Unobserve after animation
+        stepObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all process steps
+  const processSteps = document.querySelectorAll(".process-step");
+  processSteps.forEach((step) => stepObserver.observe(step));
+
+  // Progress circle animation
+  function animateProgressCircle(stepElement, stepNumber) {
+    const progressElement = stepElement.querySelector(".step-progress");
+    if (!progressElement) return;
+
+    const colors = {
+      1: "var(--orange)",
+      2: "var(--green)",
+      3: "var(--blue)",
+      4: "var(--yellow)",
+    };
+
+    let progress = 0;
+    const targetProgress = stepNumber * 90; // 90, 180, 270, 360 degrees
+    const duration = 1500;
+    const increment = targetProgress / (duration / 16);
+
+    const animationInterval = setInterval(() => {
+      progress += increment;
+
+      if (progress >= targetProgress) {
+        progress = targetProgress;
+        clearInterval(animationInterval);
+      }
+
+      progressElement.style.background = `conic-gradient(${colors[stepNumber]} 0deg, ${colors[stepNumber]} ${progress}deg, transparent ${progress}deg)`;
+    }, 16);
+  }
+
+  // Step hover interactions
+  processSteps.forEach((step, index) => {
+    const stepDetails = step.querySelector(".step-details");
+    const stepIcon = step.querySelector(".step-icon .icon-circle");
+
+    if (stepDetails && stepIcon) {
+      stepDetails.addEventListener("mouseenter", function () {
+        // Add hover glow effect
+        this.style.boxShadow =
+          "0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 69, 0, 0.2)";
+
+        // Animate icon
+        stepIcon.style.transform = "scale(1.1) rotate(5deg)";
+        stepIcon.style.transition = "all 0.3s ease";
+      });
+
+      stepDetails.addEventListener("mouseleave", function () {
+        this.style.boxShadow = "";
+        stepIcon.style.transform = "";
+      });
+    }
+  });
+
+  // Duration badge animation on scroll
+  const durationBadges = document.querySelectorAll(".duration-badge");
+  const badgeObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transform = "scale(1.05)";
+          setTimeout(() => {
+            entry.target.style.transform = "scale(1)";
+          }, 200);
+          badgeObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.8 }
+  );
+
+  durationBadges.forEach((badge) => badgeObserver.observe(badge));
+
+  // Summary cards counter animation
+  const summaryCards = document.querySelectorAll(".summary-card");
+  const summaryObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const valueElement = entry.target.querySelector(".summary-value");
+          if (valueElement) {
+            animateSummaryValue(valueElement);
+          }
+          summaryObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  summaryCards.forEach((card) => summaryObserver.observe(card));
+
+  function animateSummaryValue(element) {
+    const finalText = element.textContent.trim();
+    const isPercentage = finalText.includes("%");
+    const isUnlimited = finalText.toLowerCase().includes("unlimited");
+    const hasNumber = /\d/.test(finalText);
+
+    if (isUnlimited || !hasNumber) {
+      // For non-numeric values, just add a scale animation
+      element.style.transform = "scale(1.2)";
+      setTimeout(() => {
+        element.style.transform = "scale(1)";
+      }, 300);
+      return;
+    }
+
+    // Extract numeric value
+    const numericValue = parseInt(finalText.replace(/[^\d]/g, ""));
+    let currentValue = 0;
+    const duration = 1500;
+    const increment = Math.max(1, Math.floor(numericValue / 50));
+
+    const timer = setInterval(() => {
+      currentValue += increment;
+
+      if (currentValue >= numericValue) {
+        element.textContent = finalText;
+        clearInterval(timer);
+      } else {
+        if (isPercentage) {
+          element.textContent = currentValue + "%";
+        } else if (finalText.includes("-")) {
+          element.textContent =
+            currentValue + "-" + (currentValue + 10) + " Days";
+        } else {
+          element.textContent =
+            currentValue + (finalText.includes("Days") ? " Days" : "");
+        }
+      }
+    }, duration / (numericValue / increment));
+  }
+
+  // CTA button interactions
+  const processCtaButtons = document.querySelectorAll(
+    ".process-cta .cta-button"
+  );
+
+  // Portfolio Animation on Scroll
+  document.addEventListener("DOMContentLoaded", function () {
+    const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    portfolioCards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+
+  document.querySelectorAll(".faq-question").forEach((button) => {
+    button.addEventListener("click", () => {
+      const faqItem = button.parentElement;
+      faqItem.classList.toggle("active");
+    });
+  });
+
+  document
+    .getElementById("contactForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      const formMessage = document.getElementById("formMessage");
+      // Simple validation or sending logic here (mocked)
+      formMessage.textContent =
+        "Thanks for reaching out! We'll get back to you soon.";
+      this.reset();
+    });
 });

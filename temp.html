@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hub of Creatives - Transform Your Brand Identity</title>
+    <!-- Removed custom style.css link as Tailwind CSS will be used for styling -->
+    <!-- Added Tailwind CSS CDN for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Added Google Font: Inter, for modern typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Apply Inter font family globally and ensure smooth scrolling */
+      body {
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 antialiased">
+    <!-- Hero Section -->
+    <section
+      class="min-h-screen flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-100"
+      id="hero"
+    >
+      <div class="max-w-7xl mx-auto w-full">
+        <!-- Navigation -->
+        <nav class="flex items-center justify-between py-6">
+          <div class="flex items-center space-x-3">
+            <!-- Logo Puzzle - Replaced with SVG for better scalability and customization -->
+            <div class="relative w-10 h-10">
+              <svg
+                class="absolute top-0 left-0 w-full h-full"
+                viewBox="0 0 100 100"
+              >
+                <rect
+                  x="0"
+                  y="0"
+                  width="48"
+                  height="48"
+                  fill="#F97316"
+                  rx="8"
+                  class="origin-top-left transform rotate-45 translate-x-12 -translate-y-2"
+                ></rect>
+                <rect
+                  x="52"
+                  y="0"
+                  width="48"
+                  height="48"
+                  fill="#22C55E"
+                  rx="8"
+                  class="origin-top-right transform -rotate-45 translate-x-2 -translate-y-12"
+                ></rect>
+                <rect
+                  x="0"
+                  y="52"
+                  width="48"
+                  height="48"
+                  fill="#3B82F6"
+                  rx="8"
+                  class="origin-bottom-left transform -rotate-45 translate-x-12 translate-y-2"
+                ></rect>
+                <rect
+                  x="52"
+                  y="52"
+                  width="48"
+                  height="48"
+                  fill="#EAB308"
+                  rx="8"
+                  class="origin-bottom-right transform rotate-45 translate-x-2 translate-y-12"
+                ></rect>
+              </svg>
+            </div>
+            <span class="brand-name text-2xl font-extrabold text-gray-900"
+              >Hub of Creatives</span
+            >
+          </div>
+          <div class="hidden md:flex items-center space-x-6">
+            <a
+              href="#services"
+              class="nav-link text-gray-600 hover:text-indigo-600 transition duration-300 ease-in-out font-medium"
+              >Services</a
+            >
+            <a
+              href="#portfolio"
+              class="nav-link text-gray-600 hover:text-indigo-600 transition duration-300 ease-in-out font-medium"
+              >Portfolio</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-gray-600 hover:text-indigo-600 transition duration-300 ease-in-out font-medium"
+              >About</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-gray-600 hover:text-indigo-600 transition duration-300 ease-in-out font-medium"
+              >Contact</a
+            >
+            <button
+              class="cta-button primary bg-indigo-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+            >
+              Get Started
+            </button>
+          </div>
+          <!-- Hamburger Menu for Mobile -->
+          <div
+            class="md:hidden hamburger space-y-2 cursor-pointer"
+            id="hamburger-menu"
+          >
+            <span class="block w-8 h-0.5 bg-gray-800 animate-pulse"></span>
+            <span class="block w-8 h-0.5 bg-gray-800 animate-pulse"></span>
+            <span class="block w-8 h-0.5 bg-gray-800 animate-pulse"></span>
+          </div>
+        </nav>
+
+        <!-- Mobile Navigation Overlay -->
+        <div
+          id="mobile-nav-overlay"
+          class="fixed inset-0 bg-gray-800 bg-opacity-95 z-50 flex flex-col items-center justify-center transform scale-0 origin-top-right transition-transform duration-300 ease-in-out"
+        >
+          <button
+            id="close-menu"
+            class="absolute top-6 right-6 text-white text-3xl"
+          >
+            &times;
+          </button>
+          <div class="flex flex-col space-y-8 text-center">
+            <a
+              href="#services"
+              class="nav-link text-white text-3xl font-bold hover:text-indigo-400 transition duration-300"
+              onclick="document.getElementById('mobile-nav-overlay').classList.remove('scale-100');"
+              >Services</a
+            >
+            <a
+              href="#portfolio"
+              class="nav-link text-white text-3xl font-bold hover:text-indigo-400 transition duration-300"
+              onclick="document.getElementById('mobile-nav-overlay').classList.remove('scale-100');"
+              >Portfolio</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-white text-3xl font-bold hover:text-indigo-400 transition duration-300"
+              onclick="document.getElementById('mobile-nav-overlay').classList.remove('scale-100');"
+              >About</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-white text-3xl font-bold hover:text-indigo-400 transition duration-300"
+              onclick="document.getElementById('mobile-nav-overlay').classList.remove('scale-100');"
+              >Contact</a
+            >
+            <button
+              class="cta-button primary bg-indigo-600 text-white px-8 py-3 rounded-lg shadow-lg hover:bg-indigo-700 transition duration-300 text-xl font-semibold"
+              onclick="document.getElementById('mobile-nav-overlay').classList.remove('scale-100');"
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+
+        <!-- Hero Content -->
+        <div
+          class="hero-content flex flex-col md:flex-row items-center justify-between mt-16 md:mt-24 gap-12"
+        >
+          <div class="hero-text max-w-2xl text-center md:text-left">
+            <h1
+              class="hero-headline text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900"
+            >
+              <span class="headline-main block">Stop Blending In.</span>
+              <span class="headline-accent block text-indigo-600 mt-2"
+                >Start Standing Out.</span
+              >
+            </h1>
+            <p
+              class="hero-subheadline mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed"
+            >
+              We transform businesses into unforgettable brands that customers
+              love, remember, and choose over competitors.
+            </p>
+            <div
+              class="hero-cta mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+            >
+              <button
+                class="cta-button primary large bg-indigo-600 text-white px-8 py-4 rounded-xl shadow-lg hover:bg-indigo-700 transition duration-300 ease-in-out font-semibold text-lg"
+              >
+                Get Your Free Brand Audit
+              </button>
+              <button
+                class="cta-button secondary large bg-white text-indigo-600 border-2 border-indigo-600 px-8 py-4 rounded-xl shadow-lg hover:bg-indigo-50 transition duration-300 ease-in-out font-semibold text-lg"
+              >
+                View Our Work
+              </button>
+            </div>
+            <div class="hero-stats mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8">
+              <div class="stat text-center">
+                <span
+                  class="stat-number block text-4xl font-bold text-indigo-600"
+                  >200+</span
+                >
+                <span class="stat-label block text-gray-600 mt-1"
+                  >Brands Transformed</span
+                >
+              </div>
+              <div class="stat text-center">
+                <span
+                  class="stat-number block text-4xl font-bold text-indigo-600"
+                  >150%</span
+                >
+                <span class="stat-label block text-gray-600 mt-1"
+                  >Avg. Revenue Increase</span
+                >
+              </div>
+              <div class="stat text-center">
+                <span
+                  class="stat-number block text-4xl font-bold text-indigo-600"
+                  >30 Days</span
+                >
+                <span class="stat-label block text-gray-600 mt-1"
+                  >Average Delivery</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="hero-visual relative w-full md:w-1/2 flex justify-center items-center"
+          >
+            <div
+              class="brand-showcase relative w-full max-w-xl aspect-square grid grid-cols-2 gap-4 p-4 rounded-3xl bg-white shadow-2xl transform rotate-3 scale-95 transition-transform duration-500 hover:rotate-0 hover:scale-100 ease-in-out"
+            >
+              <!-- Showcase Card 1 -->
+              <div
+                class="showcase-card card-1 bg-gradient-to-br from-orange-400 to-orange-600 p-6 rounded-2xl shadow-xl flex flex-col justify-between transform -rotate-6 translate-x-2 -translate-y-2"
+              >
+                <div class="card-header flex items-center space-x-3 text-white">
+                  <div
+                    class="card-icon bg-white bg-opacity-30 p-2 rounded-full"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 text-white"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                      />
+                      <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                    </svg>
+                  </div>
+                  <span class="font-semibold text-lg">Logo Design</span>
+                </div>
+                <div
+                  class="card-preview h-24 w-full bg-orange-700 bg-opacity-40 rounded-lg flex items-center justify-center text-white text-xl font-bold"
+                >
+                  Your Logo Here
+                </div>
+              </div>
+              <!-- Showcase Card 2 -->
+              <div
+                class="showcase-card card-2 bg-gradient-to-br from-green-400 to-green-600 p-6 rounded-2xl shadow-xl flex flex-col justify-between transform rotate-6 translate-x-2 translate-y-2"
+              >
+                <div class="card-header flex items-center space-x-3 text-white">
+                  <div
+                    class="card-icon bg-white bg-opacity-30 p-2 rounded-full"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 text-white"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                      />
+                      <path
+                        d="M12 6c-2.76 0-5 2.24-5 5h2c0-1.66 1.34-3 3-3s3 1.34 3 3c0 2-3 1.75-3 5h2c0-2.22 3-2.5 3-5 0-2.76-2.24-5-5-5zM11 17h2v2h-2z"
+                      />
+                    </svg>
+                  </div>
+                  <span class="font-semibold text-lg">Brand Identity</span>
+                </div>
+                <div
+                  class="card-preview h-24 w-full bg-green-700 bg-opacity-40 rounded-lg flex items-center justify-center text-white text-xl font-bold"
+                >
+                  Brand Guidelines
+                </div>
+              </div>
+              <!-- Showcase Card 3 -->
+              <div
+                class="showcase-card card-3 bg-gradient-to-br from-blue-400 to-blue-600 p-6 rounded-2xl shadow-xl flex flex-col justify-between col-span-2 transform rotate-2 translate-y-4"
+              >
+                <div class="card-header flex items-center space-x-3 text-white">
+                  <div
+                    class="card-icon bg-white bg-opacity-30 p-2 rounded-full"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 text-white"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zm-2-12H6v2h12zm0 4H6v2h12z"
+                      />
+                    </svg>
+                  </div>
+                  <span class="font-semibold text-lg">Web Design</span>
+                </div>
+                <div
+                  class="card-preview h-32 w-full bg-blue-700 bg-opacity-40 rounded-lg flex items-center justify-center text-white text-xl font-bold"
+                >
+                  Responsive Website
+                </div>
+              </div>
+              <!-- Floating elements for visual flair -->
+              <div
+                class="floating-elements absolute inset-0 overflow-hidden rounded-3xl -z-10"
+              >
+                <div
+                  class="floating-shape shape-1 absolute bg-purple-200 rounded-full w-24 h-24 -top-8 -left-8 animate-float-slow"
+                ></div>
+                <div
+                  class="floating-shape shape-2 absolute bg-pink-200 rounded-full w-32 h-32 -bottom-10 -right-10 animate-float-medium"
+                ></div>
+                <div
+                  class="floating-shape shape-3 absolute bg-yellow-200 rounded-full w-20 h-20 top-1/3 left-1/4 animate-float-fast"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section
+      class="social-proof-section py-16 px-4 sm:px-6 lg:px-8 bg-gray-100"
+      id="social-proof"
+    >
+      <div class="max-w-7xl mx-auto">
+        <!-- Main heading -->
+        <div class="social-proof-header text-center mb-12">
+          <h2
+            class="section-title text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3"
+          >
+            Trusted by Industry Leaders
+          </h2>
+          <p class="section-subtitle text-lg text-gray-600">
+            Join 200+ brands who chose us to transform their identity
+          </p>
+        </div>
+
+        <!-- Client Logos Carousel -->
+        <div class="logos-carousel relative w-full overflow-hidden py-4">
+          <div class="logos-track flex animate-carousel">
+            <!-- First set of logos -->
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>TechFlow</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>FinanceX</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>HealthCare+</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>RetailMax</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>FoodHub</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>TravelWise</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>EduPro</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>StartupX</span>
+              </div>
+            </div>
+
+            <!-- Duplicate set for seamless loop -->
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>TechFlow</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>FinanceX</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>HealthCare+</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>RetailMax</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>FoodHub</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>TravelWise</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>EduPro</span>
+              </div>
+            </div>
+            <div class="logo-item flex-shrink-0 w-48 mx-4">
+              <div
+                class="logo-placeholder flex items-center justify-center h-24 bg-white rounded-xl shadow-md text-gray-700 font-bold text-lg border border-gray-200 transform hover:scale-105 transition-transform duration-300 ease-in-out"
+              >
+                <span>StartupX</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div
+          class="quick-stats mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
+          <div
+            class="quick-stat flex items-center p-6 bg-white rounded-xl shadow-md"
+          >
+            <div class="stat-icon mr-4">
+              <div
+                class="icon-circle orange bg-orange-200 p-3 rounded-full flex items-center justify-center text-orange-600"
+              >
+                <span class="icon text-2xl">⭐</span>
+              </div>
+            </div>
+            <div class="stat-content">
+              <span class="stat-number block text-3xl font-bold text-gray-900"
+                >4.9/5</span
+              >
+              <span class="stat-label block text-gray-600 text-sm"
+                >Client Rating</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="quick-stat flex items-center p-6 bg-white rounded-xl shadow-md"
+          >
+            <div class="stat-icon mr-4">
+              <div
+                class="icon-circle green bg-green-200 p-3 rounded-full flex items-center justify-center text-green-600"
+              >
+                <span class="icon text-2xl">🚀</span>
+              </div>
+            </div>
+            <div class="stat-content">
+              <span class="stat-number block text-3xl font-bold text-gray-900"
+                >98%</span
+              >
+              <span class="stat-label block text-gray-600 text-sm"
+                >Project Success</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="quick-stat flex items-center p-6 bg-white rounded-xl shadow-md"
+          >
+            <div class="stat-icon mr-4">
+              <div
+                class="icon-circle blue bg-blue-200 p-3 rounded-full flex items-center justify-center text-blue-600"
+              >
+                <span class="icon text-2xl">🏆</span>
+              </div>
+            </div>
+            <div class="stat-content">
+              <span class="stat-number block text-3xl font-bold text-gray-900"
+                >15+</span
+              >
+              <span class="stat-label block text-gray-600 text-sm"
+                >Industry Awards</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="quick-stat flex items-center p-6 bg-white rounded-xl shadow-md"
+          >
+            <div class="stat-icon mr-4">
+              <div
+                class="icon-circle yellow bg-yellow-200 p-3 rounded-full flex items-center justify-center text-yellow-600"
+              >
+                <span class="icon text-2xl">💼</span>
+              </div>
+            </div>
+            <div class="stat-content">
+              <span class="stat-number block text-3xl font-bold text-gray-900"
+                >200+</span
+              >
+              <span class="stat-label block text-gray-600 text-sm"
+                >Brands Served</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial Highlight -->
+        <div
+          class="testimonial-highlight mt-16 p-8 bg-indigo-600 text-white rounded-2xl shadow-xl max-w-4xl mx-auto relative overflow-hidden"
+        >
+          <div
+            class="quote-icon absolute text-8xl font-serif opacity-20 top-4 left-4 -z-10"
+          >
+            "
+          </div>
+          <blockquote
+            class="text-xl sm:text-2xl font-semibold leading-relaxed mb-6 italic relative z-10"
+          >
+            "Hub of Creatives transformed our entire brand identity. Our sales
+            increased by 150% within 3 months of the rebrand launch."
+          </blockquote>
+          <div
+            class="testimonial-author flex items-center space-x-4 relative z-10"
+          >
+            <div
+              class="author-avatar w-16 h-16 bg-white text-indigo-600 rounded-full flex items-center justify-center text-xl font-bold uppercase shadow-md"
+            >
+              <span>JD</span>
+            </div>
+            <div class="author-info">
+              <span class="author-name block text-xl font-bold"
+                >Jessica Davis</span
+              >
+              <span class="author-title block text-indigo-200"
+                >CEO, TechFlow Solutions</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section
+      id="services"
+      class="services-section py-16 px-4 sm:px-6 lg:px-8 bg-white animate-section"
+    >
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="section-title text-center text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3"
+        >
+          What We Do
+        </h2>
+        <p class="section-subtitle text-center text-lg text-gray-600 mb-12">
+          Powerful digital solutions tailored for small businesses
+        </p>
+
+        <div class="services-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="service-box bg-gray-50 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out"
+          >
+            <img
+              src="https://placehold.co/600x400/F97316/ffffff?text=Brand+Strategy"
+              alt="Brand Strategy"
+              class="service-img w-full h-48 object-cover"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x400/F97316/ffffff?text=Image+Load+Error';"
+            />
+            <div class="p-6">
+              <h3 class="service-title text-xl font-bold text-gray-900 mb-2">
+                Brand Strategy
+              </h3>
+              <p class="service-description text-gray-600">
+                We help you craft a clear, compelling brand that connects with
+                your audience and stands out online.
+              </p>
+            </div>
+          </div>
+          <div
+            class="service-box bg-gray-50 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out"
+          >
+            <img
+              src="https://placehold.co/600x400/22C55E/ffffff?text=Custom+Websites"
+              alt="Custom Websites"
+              class="service-img w-full h-48 object-cover"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x400/22C55E/ffffff?text=Image+Load+Error';"
+            />
+            <div class="p-6">
+              <h3 class="service-title text-xl font-bold text-gray-900 mb-2">
+                Custom Websites
+              </h3>
+              <p class="service-description text-gray-600">
+                Fast, secure, mobile-first websites designed to convert visitors
+                into customers—built from scratch.
+              </p>
+            </div>
+          </div>
+          <div
+            class="service-box bg-gray-50 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out"
+          >
+            <img
+              src="https://placehold.co/600x400/3B82F6/ffffff?text=SEO+Optimization"
+              alt="SEO Optimization"
+              class="service-img w-full h-48 object-cover"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x400/3B82F6/ffffff?text=Image+Load+Error';"
+            />
+            <div class="p-6">
+              <h3 class="service-title text-xl font-bold text-gray-900 mb-2">
+                Performance & SEO
+              </h3>
+              <p class="service-description text-gray-600">
+                We optimize speed, SEO, and user experience to help your
+                business rank higher and perform better.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section
+      class="how-it-works-section py-16 px-4 sm:px-6 lg:px-8 bg-gray-100"
+      id="how-it-works"
+    >
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="how-it-works-header text-center mb-16">
+          <h2
+            class="section-title text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3"
+          >
+            How We Transform Your Brand
+          </h2>
+          <p class="section-subtitle text-lg text-gray-600">
+            Our proven 4-step process ensures your brand stands out and drives
+            results
+          </p>
+        </div>
+
+        <!-- Process Steps -->
+        <div
+          class="process-timeline relative border-l-4 border-indigo-200 space-y-12 lg:space-y-16 ml-4 lg:ml-0"
+        >
+          <!-- Step 1 -->
+          <div class="process-step relative pl-8 lg:pl-16 group" data-step="1">
+            <div
+              class="step-circle absolute -left-4 lg:-left-6 top-0 w-8 h-8 lg:w-12 lg:h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform duration-300 ease-in-out"
+            >
+              01
+            </div>
+            <div
+              class="step-content bg-white p-6 rounded-xl shadow-lg transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 ease-in-out"
+            >
+              <div class="step-details">
+                <div class="step-icon mb-4">
+                  <div
+                    class="icon-circle orange bg-orange-200 p-3 rounded-full inline-flex items-center justify-center text-orange-600"
+                  >
+                    <span class="icon text-3xl">🔍</span>
+                  </div>
+                </div>
+                <h3 class="step-title text-2xl font-bold text-gray-900 mb-3">
+                  Discovery & Research
+                </h3>
+                <p class="step-description text-gray-700 leading-relaxed mb-4">
+                  We dive deep into your business, competitors, and target
+                  audience to understand what makes you unique and how to
+                  position your brand for success.
+                </p>
+                <ul
+                  class="step-features list-disc list-inside text-gray-600 space-y-1 mb-4"
+                >
+                  <li>Brand audit & competitor analysis</li>
+                  <li>Target audience research</li>
+                  <li>Market positioning strategy</li>
+                </ul>
+                <div class="step-duration">
+                  <span
+                    class="duration-badge inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-orange-100 text-orange-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 mr-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    3-5 Days
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-step relative pl-8 lg:pl-16 group" data-step="2">
+            <div
+              class="step-circle absolute -left-4 lg:-left-6 top-0 w-8 h-8 lg:w-12 lg:h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform duration-300 ease-in-out"
+            >
+              02
+            </div>
+            <div
+              class="step-content bg-white p-6 rounded-xl shadow-lg transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 ease-in-out"
+            >
+              <div class="step-details">
+                <div class="step-icon mb-4">
+                  <div
+                    class="icon-circle green bg-green-200 p-3 rounded-full inline-flex items-center justify-center text-green-600"
+                  >
+                    <span class="icon text-3xl">💡</span>
+                  </div>
+                </div>
+                <h3 class="step-title text-2xl font-bold text-gray-900 mb-3">
+                  Strategy & Concept
+                </h3>
+                <p class="step-description text-gray-700 leading-relaxed mb-4">
+                  Based on our research, we develop a comprehensive brand
+                  strategy and create initial concepts that align with your
+                  vision and business goals.
+                </p>
+                <ul
+                  class="step-features list-disc list-inside text-gray-600 space-y-1 mb-4"
+                >
+                  <li>Brand strategy framework</li>
+                  <li>Creative concept development</li>
+                  <li>Style direction & mood boards</li>
+                </ul>
+                <div class="step-duration">
+                  <span
+                    class="duration-badge inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 mr-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    7-10 Days
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-step relative pl-8 lg:pl-16 group" data-step="3">
+            <div
+              class="step-circle absolute -left-4 lg:-left-6 top-0 w-8 h-8 lg:w-12 lg:h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform duration-300 ease-in-out"
+            >
+              03
+            </div>
+            <div
+              class="step-content bg-white p-6 rounded-xl shadow-lg transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 ease-in-out"
+            >
+              <div class="step-details">
+                <div class="step-icon mb-4">
+                  <div
+                    class="icon-circle blue bg-blue-200 p-3 rounded-full inline-flex items-center justify-center text-blue-600"
+                  >
+                    <span class="icon text-3xl">🎨</span>
+                  </div>
+                </div>
+                <h3 class="step-title text-2xl font-bold text-gray-900 mb-3">
+                  Design & Development
+                </h3>
+                <p class="step-description text-gray-700 leading-relaxed mb-4">
+                  We create your complete brand identity including logo, colors,
+                  typography, and all visual elements that will make your brand
+                  memorable.
+                </p>
+                <ul
+                  class="step-features list-disc list-inside text-gray-600 space-y-1 mb-4"
+                >
+                  <li>Logo design & brand mark</li>
+                  <li>Color palette & typography</li>
+                  <li>Brand guidelines document</li>
+                </ul>
+                <div class="step-duration">
+                  <span
+                    class="duration-badge inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 mr-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    10-14 Days
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-step relative pl-8 lg:pl-16 group" data-step="4">
+            <div
+              class="step-circle absolute -left-4 lg:-left-6 top-0 w-8 h-8 lg:w-12 lg:h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform duration-300 ease-in-out"
+            >
+              04
+            </div>
+            <div
+              class="step-content bg-white p-6 rounded-xl shadow-lg transform translate-x-0 group-hover:translate-x-2 transition-transform duration-300 ease-in-out"
+            >
+              <div class="step-details">
+                <div class="step-icon mb-4">
+                  <div
+                    class="icon-circle yellow bg-yellow-200 p-3 rounded-full inline-flex items-center justify-center text-yellow-600"
+                  >
+                    <span class="icon text-3xl">🚀</span>
+                  </div>
+                </div>
+                <h3 class="step-title text-2xl font-bold text-gray-900 mb-3">
+                  Launch & Support
+                </h3>
+                <p class="step-description text-gray-700 leading-relaxed mb-4">
+                  We help you implement your new brand across all touchpoints
+                  and provide ongoing support to ensure successful brand
+                  adoption.
+                </p>
+                <ul
+                  class="step-features list-disc list-inside text-gray-600 space-y-1 mb-4"
+                >
+                  <li>Brand implementation support</li>
+                  <li>Marketing material templates</li>
+                  <li>30-day post-launch support</li>
+                </ul>
+                <div class="step-duration">
+                  <span
+                    class="duration-badge inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-yellow-100 text-yellow-800"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 mr-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    5-7 Days
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Process Summary -->
+        <div
+          class="process-summary mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          <div
+            class="summary-card flex flex-col items-center p-6 bg-white rounded-xl shadow-lg text-center"
+          >
+            <div class="summary-icon mb-4">
+              <div
+                class="icon-circle gradient bg-gradient-to-br from-indigo-400 to-purple-600 p-4 rounded-full inline-flex items-center justify-center text-white shadow-md"
+              >
+                <span class="icon text-3xl">⏱️</span>
+              </div>
+            </div>
+            <div class="summary-content">
+              <h4 class="summary-title text-xl font-bold text-gray-900 mb-1">
+                Total Timeline
+              </h4>
+              <p
+                class="summary-value text-3xl font-extrabold text-indigo-600 mb-1"
+              >
+                25-36 Days
+              </p>
+              <p class="summary-description text-gray-600">
+                From discovery to launch
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="summary-card flex flex-col items-center p-6 bg-white rounded-xl shadow-lg text-center"
+          >
+            <div class="summary-icon mb-4">
+              <div
+                class="icon-circle gradient bg-gradient-to-br from-purple-400 to-pink-600 p-4 rounded-full inline-flex items-center justify-center text-white shadow-md"
+              >
+                <span class="icon text-3xl">🎯</span>
+              </div>
+            </div>
+            <div class="summary-content">
+              <h4 class="summary-title text-xl font-bold text-gray-900 mb-1">
+                Success Rate
+              </h4>
+              <p
+                class="summary-value text-3xl font-extrabold text-indigo-600 mb-1"
+              >
+                98%
+              </p>
+              <p class="summary-description text-gray-600">
+                Client satisfaction guaranteed
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="summary-card flex flex-col items-center p-6 bg-white rounded-xl shadow-lg text-center"
+          >
+            <div class="summary-icon mb-4">
+              <div
+                class="icon-circle gradient bg-gradient-to-br from-pink-400 to-red-600 p-4 rounded-full inline-flex items-center justify-center text-white shadow-md"
+              >
+                <span class="icon text-3xl">🔄</span>
+              </div>
+            </div>
+            <div class="summary-content">
+              <h4 class="summary-title text-xl font-bold text-gray-900 mb-1">
+                Revisions
+              </h4>
+              <p
+                class="summary-value text-3xl font-extrabold text-indigo-600 mb-1"
+              >
+                Unlimited
+              </p>
+              <p class="summary-description text-gray-600">
+                Until you're 100% satisfied
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div
+          class="process-cta mt-16 text-center bg-indigo-50 p-10 rounded-2xl shadow-inner"
+        >
+          <h3 class="cta-title text-3xl font-extrabold text-gray-900 mb-4">
+            Ready to Transform Your Brand?
+          </h3>
+          <p class="cta-description text-lg text-gray-700 mb-8">
+            Let's start with a free consultation to discuss your project
+          </p>
+          <div
+            class="cta-buttons flex flex-col sm:flex-row justify-center gap-4"
+          >
+            <button
+              class="cta-button primary large bg-indigo-600 text-white px-8 py-4 rounded-xl shadow-lg hover:bg-indigo-700 transition duration-300 ease-in-out font-semibold text-lg"
+            >
+              Start Your Project
+            </button>
+            <button
+              class="cta-button secondary large bg-white text-indigo-600 border-2 border-indigo-600 px-8 py-4 rounded-xl shadow-lg hover:bg-indigo-50 transition duration-300 ease-in-out font-semibold text-lg"
+            >
+              Schedule a Call
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
