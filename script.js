@@ -4,12 +4,52 @@ document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
 
+  // Function to handle mobile menu state
+  function toggleMobileMenu(show) {
+    if (show) {
+      hamburger.classList.add("active");
+      navMenu.classList.add("active");
+      document.body.style.overflow = "hidden";
+    } else {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  }
+
   if (hamburger && navMenu) {
     hamburger.addEventListener("click", function () {
-      hamburger.classList.toggle("active");
-      navMenu.classList.toggle("active");
+      console.log("Hamburger clicked!");
+      const isActive = navMenu.classList.contains("active");
+      toggleMobileMenu(!isActive);
+      console.log("Nav menu active:", !isActive);
     });
   }
+
+  // Mobile menu close button
+  const mobileMenuClose = document.querySelector(".mobile-menu-close");
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener("click", function () {
+      toggleMobileMenu(false);
+    });
+  }
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", function (e) {
+    if (navMenu.classList.contains("active") && 
+        !navMenu.contains(e.target) && 
+        !hamburger.contains(e.target) && 
+        !mobileMenuClose.contains(e.target)) {
+      toggleMobileMenu(false);
+    }
+  });
+
+  // Close mobile menu on escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && navMenu.classList.contains("active")) {
+      toggleMobileMenu(false);
+    }
+  });
 
   // Smooth scrolling for navigation links
   const navLinks = document.querySelectorAll(".nav-link");
@@ -27,8 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         // Close mobile menu if open
         if (navMenu.classList.contains("active")) {
-          hamburger.classList.remove("active");
-          navMenu.classList.remove("active");
+          toggleMobileMenu(false);
         }
       }
     });
@@ -786,14 +825,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  document
-    .getElementById("contactForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-      const formMessage = document.getElementById("formMessage");
-      // Simple validation or sending logic here (mocked)
-      formMessage.textContent =
-        "Thanks for reaching out! We'll get back to you soon.";
-      this.reset();
-    });
+  // Contact form is handled by the ContactForm class above
+  // No need for duplicate event listener
 });
+
