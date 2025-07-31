@@ -20,14 +20,15 @@
               <div class="puzzle-piece piece-yellow"></div>
             </div>
             <span class="brand-name">Hub of Creatives</span> -->
-            <img src="./img/logo-desktop.png" />
+            <a href="index.html"><img src="./img/logo-desktop.png" /></a>
           </div>
           <div class="nav-menu">
             <a href="#services" class="nav-link">Services</a>
-            <a href="#portfolio" class="nav-link">Portfolio</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#contact" class="nav-link">Contact</a>
-            <button class="cta-button primary">Get Started</button>
+            <a href="https://wa.me/12345678900"
+              ><button class="cta-button primary">Get Started</button></a
+            >
           </div>
           <div class="hamburger">
             <span></span>
@@ -48,12 +49,17 @@
               attention grabbing content and strategic digital marketing
             </p>
             <div class="hero-cta">
-              <button class="cta-button primary large">
-                Get Your Free Brand Audit
-              </button>
-              <button class="cta-button secondary large">
-                View Our Services
-              </button>
+              <a href="https://wa.me/12345678900">
+                <button class="cta-button primary large">
+                  Get Your Free Brand Audit
+                </button>
+              </a>
+
+              <a href="#services">
+                <button class="cta-button secondary large">
+                  View Our Services
+                </button>
+              </a>
             </div>
             <div class="hero-stats">
               <div class="stat">
@@ -152,7 +158,7 @@
         <div class="services-grid">
           <div class="service-box">
             <img
-              src="https://placehold.co/600x400"
+              src="img/strategy-2.png"
               alt="Brand Strategy"
               class="service-img"
             />
@@ -164,7 +170,7 @@
           </div>
           <div class="service-box">
             <img
-              src="https://placehold.co/600x400"
+              src="img/design.png"
               alt="Custom Websites"
               class="service-img"
             />
@@ -175,7 +181,7 @@
           </div>
           <div class="service-box">
             <img
-              src="https://placehold.co/600x400"
+              src="img/videography.png"
               alt="SEO Optimization"
               class="service-img"
             />
@@ -186,7 +192,7 @@
           </div>
           <div class="service-box">
             <img
-              src="https://placehold.co/600x400"
+              src="img/marketing black 900.png"
               alt="SEO Optimization"
               class="service-img"
             />
@@ -350,10 +356,12 @@
             Let's start with a free consultation to discuss your project
           </p>
           <div class="cta-buttons">
-            <a href="./package.html"
+            <a href="https://wa.me/12345678900"
               ><button class="cta-button primary large">Get Started</button></a
             >
-            <button class="cta-button secondary large">Give Us a Call</button>
+            <a href="https://wa.me/12345678900">
+              <button class="cta-button secondary large">Give Us a Call</button>
+            </a>
           </div>
         </div>
       </div>
@@ -407,7 +415,7 @@
     </section> -->
 
     <!-- About Section -->
-    <section class="about-section">
+    <section id="about" class="about-section">
       <div class="about-container">
         <h2 class="section-title">About Us</h2>
         <p class="credibility">
@@ -487,7 +495,7 @@
             market.
           </p>
           <div class="final-cta-buttons">
-            <a href="./package.html">
+            <a href="https://wa.me/12345678900">
               <button
                 class="final-cta-button primary"
                 onclick="handleCTAClick('audit')"
@@ -496,12 +504,14 @@
               </button>
             </a>
 
-            <button
-              class="final-cta-button secondary"
-              onclick="handleCTAClick('consultation')"
-            >
-              Reach Us
-            </button>
+            <a href="https://wa.me/12345678900">
+              <button
+                class="final-cta-button secondary"
+                onclick="handleCTAClick('consultation')"
+              >
+                Reach Us
+              </button>
+            </a>
           </div>
           <div class="final-cta-urgency">
             <div class="urgency-icon"></div>
@@ -515,6 +525,65 @@
         </div>
       </div>
     </section>
+
+    <!--- Contact Form -->
+    <div id="contact" class="contact-form-container">
+      <form class="contact-form" id="contactForm">
+        <h2 class="form-title" style="color: black">Get In Touch</h2>
+        <p class="form-subtitle">Let's talk about your project</p>
+
+        <div class="form-group">
+          <label for="name" class="form-label">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-input"
+            placeholder="Enter your full name"
+            required
+          />
+          <div class="error-message" id="nameError">Please enter your name</div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="Enter your email address"
+            required
+          />
+          <div class="error-message" id="emailError">
+            Please enter a valid email address
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="form-label">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            class="form-textarea"
+            placeholder="Tell us what you're thinking about..."
+            required
+          ></textarea>
+          <div class="error-message" id="messageError">
+            Please enter your message
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span id="btnText">Send Message</span>
+        </button>
+
+        <div class="success-message" id="successMessage">
+          🎉 Thank you! Your message has been sent successfully. We'll get back
+          to you soon!
+        </div>
+      </form>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer" style="background-color: black">
@@ -530,7 +599,6 @@
           <h3>Quick Links</h3>
           <ul>
             <li><a href="#about-section">About</a></li>
-            <li><a href="#portfolio-section">Portfolio</a></li>
             <li><a href="#faq-section">FAQ</a></li>
             <li><a href="#final-cta-section">Contact</a></li>
             <li><a href="/privacy-policy.html">Privacy Policy</a></li>

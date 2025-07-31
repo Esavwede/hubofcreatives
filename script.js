@@ -203,6 +203,177 @@ document.addEventListener("DOMContentLoaded", function () {
     rootMargin: "0px 0px -50px 0px",
   };
 
+  /*** Contact form */
+  class ContactForm {
+    constructor() {
+      this.form = document.getElementById("contactForm");
+      this.submitBtn = document.getElementById("submitBtn");
+      this.btnText = document.getElementById("btnText");
+      this.successMessage = document.getElementById("successMessage");
+      this.init();
+    }
+
+    init() {
+      this.form.addEventListener("submit", this.handleSubmit.bind(this));
+
+      // Real-time validation
+      const inputs = this.form.querySelectorAll(".form-input, .form-textarea");
+      inputs.forEach((input) => {
+        input.addEventListener("blur", () => this.validateField(input));
+        input.addEventListener("input", () => this.clearError(input));
+      });
+    }
+
+    validateField(field) {
+      const value = field.value.trim();
+      const fieldName = field.name;
+      let isValid = true;
+      let errorMessage = "";
+
+      switch (fieldName) {
+        case "name":
+          if (!value) {
+            errorMessage = "Please enter your name";
+            isValid = false;
+          } else if (value.length < 2) {
+            errorMessage = "Name must be at least 2 characters long";
+            isValid = false;
+          }
+          break;
+
+        case "email":
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!value) {
+            errorMessage = "Please enter your email address";
+            isValid = false;
+          } else if (!emailRegex.test(value)) {
+            errorMessage = "Please enter a valid email address";
+            isValid = false;
+          }
+          break;
+
+        case "message":
+          if (!value) {
+            errorMessage = "Please enter your message";
+            isValid = false;
+          } else if (value.length < 10) {
+            errorMessage = "Message must be at least 10 characters long";
+            isValid = false;
+          }
+          break;
+      }
+
+      this.showError(field, errorMessage, !isValid);
+      return isValid;
+    }
+
+    showError(field, message, show) {
+      const errorElement = document.getElementById(field.name + "Error");
+
+      if (show) {
+        field.classList.add("error");
+        errorElement.textContent = message;
+        errorElement.classList.add("show");
+      } else {
+        field.classList.remove("error");
+        errorElement.classList.remove("show");
+      }
+    }
+
+    clearError(field) {
+      field.classList.remove("error");
+      const errorElement = document.getElementById(field.name + "Error");
+      errorElement.classList.remove("show");
+    }
+
+    validateForm() {
+      const fields = ["name", "email", "message"];
+      let isValid = true;
+
+      fields.forEach((fieldName) => {
+        const field = document.getElementById(fieldName);
+        if (!this.validateField(field)) {
+          isValid = false;
+        }
+      });
+
+      return isValid;
+    }
+
+    async handleSubmit(e) {
+      e.preventDefault();
+
+      if (!this.validateForm()) {
+        return;
+      }
+
+      // Show loading state
+      this.setLoadingState(true);
+
+      // Simulate form submission (replace with your actual form submission logic)
+      try {
+        await this.simulateFormSubmission();
+        this.showSuccess();
+        this.form.reset();
+      } catch (error) {
+        console.error("Form submission error:", error);
+        alert(
+          "Sorry, there was an error sending your message. Please try again."
+        );
+      } finally {
+        this.setLoadingState(false);
+      }
+    }
+
+    async simulateFormSubmission() {
+      // Simulate API call delay
+      return new Promise((resolve) => {
+        setTimeout(resolve, 2000);
+      });
+
+      // Replace this with your actual form submission logic:
+      /*
+                const formData = new FormData(this.form);
+                const response = await fetch('/contact', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                return response.json();
+                */
+    }
+
+    setLoadingState(loading) {
+      if (loading) {
+        this.submitBtn.disabled = true;
+        this.btnText.innerHTML = '<div class="loading"></div>Sending...';
+      } else {
+        this.submitBtn.disabled = false;
+        this.btnText.textContent = "Send Message";
+      }
+    }
+
+    showSuccess() {
+      this.successMessage.classList.add("show");
+
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        this.successMessage.classList.remove("show");
+      }, 5000);
+    }
+  }
+
+  // Initialize the contact form when DOM is loaded
+  document.addEventListener("DOMContentLoaded", () => {
+    new ContactForm();
+  });
+
+  /** End of contact form code */
+
   const observer = new IntersectionObserver(function (entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
