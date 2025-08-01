@@ -198,19 +198,24 @@ body {
 
 /* Mobile menu close button */
 .mobile-menu-close {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   background: none;
   border: none;
   color: var(--white);
-  font-size: 2rem;
+  font-size: 2.5rem;
   cursor: pointer;
   z-index: 10000;
   display: none;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  line-height: 1;
+  text-align: center;
 }
 
-.nav-menu.active + .mobile-menu-close {
+.nav-menu.active ~ .mobile-menu-close {
   display: block;
 }
 
@@ -226,7 +231,7 @@ body {
   backdrop-filter: blur(20px);
   padding: 80px 20px 20px;
   gap: 2rem;
-  z-index: 9999;
+  z-index: 9998;
   animation: slideDown 0.3s ease-out;
   justify-content: center;
   align-items: center;
